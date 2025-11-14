@@ -23,7 +23,7 @@ function Login() {
     try {
       const response = await login(email, password);
 
-      if (response.success === 'success') {
+      if (response.status === 'success') {
         toast.success("Login Successful");
         localStorage.setItem('token', response.data.token);
         navigate('/Home');
