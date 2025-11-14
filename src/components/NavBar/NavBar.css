@@ -8,7 +8,12 @@ nav {
   font-family: 'Arial', sans-serif;
 }
 
-
+.brand{
+    color:#b9c5d7;
+    padding-right: 5vh;
+    font-size: large;
+    
+}
 nav a {
   color: #ffffff;
   text-decoration: none;

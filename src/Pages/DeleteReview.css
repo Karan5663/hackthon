@@ -1,0 +1,78 @@
+.delete-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  font-family: Arial, sans-serif;
+}
+
+.delete-box {
+  width: 100%;
+  max-width: 450px;
+  background-color: #fff;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.delete-box h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.delete-box p {
+  margin-bottom: 30px;
+  color: #555;
+  font-size: 16px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-group .btn {
+  width: 48%;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button-group .btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.button-group .btn-danger:hover {
+  background-color: #b52a37;
+}
+
+.button-group .btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.button-group .btn-secondary:hover {
+  background-color: #495057;
+}
+
+@media (max-width: 600px) {
+  .delete-box {
+    padding: 20px;
+    margin: 0 10px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .button-group .btn {
+    width: 100%;
+  }
+}
