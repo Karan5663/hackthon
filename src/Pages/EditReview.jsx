@@ -1,28 +1,28 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "./EditReview.css";
 
 function EditReview() {
   const navigate = useNavigate();
   const location = useLocation();
-  const params = useParams();
 
-  const isNew = location.state?.isNew;
-  const existingReview = location.state;
+  const { isNew, movie: m, rating: r, comment: c } = location.state || {};
 
-  const [movie, setMovie] = useState(existingReview?.movie || "");
-  const [rating, setRating] = useState(existingReview?.rating || 1);
-  const [comment, setComment] = useState(existingReview?.comment || "");
+  const [movie, setMovie] = useState(m || "");
+  const [rating, setRating] = useState(r || 1);
+  const [comment, setComment] = useState(c || "");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (isNew) {
-      alert("New Review Added!");
+      toast.success("New Review Added!", { autoClose: 1500 });
     } else {
-      alert("Review Updated!");
+      toast.info("Review Updated!", { autoClose: 1500 });
     }
 
-    navigate("/");
+    setTimeout(() => navigate("/"), 1500);
   };
 
   return (
@@ -30,11 +30,12 @@ function EditReview() {
       <h2>{isNew ? "Add Review" : "Edit Review"}</h2>
 
       <form onSubmit={handleSubmit} className="edit-form">
-
+        
         <label>Movie Name</label>
         <input
           type="text"
           value={movie}
+          onChange={(e) => setMovie(e.target.value)}
           required
         />
 
@@ -59,10 +60,10 @@ function EditReview() {
           {isNew ? "Add Review" : "Save Changes"}
         </button>
 
-        <button 
+        <button
           className="btn btn-secondary"
-          onClick={() => navigate("/")}
           type="button"
+          onClick={() => navigate("/")}
         >
           Cancel
         </button>
